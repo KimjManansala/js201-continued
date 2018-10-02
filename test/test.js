@@ -233,8 +233,8 @@ function checkStrings() {
 // 03 Fizzbuzz
 // -----------------------------------------------------------------------------
 
-function checkFizzbuzz() {
-  const moduleFileName = '../' + moduleName('exercisess/03-fizzbuzz.js')
+function checkFizzbuzz () {
+  const moduleFileName = '../' + moduleName('exercises/03-fizzbuzz.js')
   let module = getModule(moduleFileName)
 
   it('03-fizzbuzz.js should have one function: fizzbuzz', function () {
@@ -536,7 +536,7 @@ describe('JavaScript Syntax', checkJSSyntax)
 if (allSyntaxValid) {
   createModuleFiles()
   describe('Predicate Functions', checkPredicateFunctions)
-  describe('String Functions', checkStrings)
+ // describe('String Functions', checkStrings)
   describe('Fizzbuzz Function', checkFizzbuzz)
   describe('gcd function', checkGcd)
   describe('Number Array function', checkNumberArrays)

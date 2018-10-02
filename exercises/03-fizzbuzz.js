@@ -22,4 +22,3 @@ function fizzbuzz (num) {
   return fizzBuzzString
 }
 
-//needs work
