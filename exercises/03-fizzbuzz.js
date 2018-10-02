@@ -9,3 +9,17 @@
 // Examples:
 // fizzbuzz(3) --> '..fizz'
 // fizzbuzz(15) --> '..fizz.buzzfizz..fizzbuzz.fizz..fizzbuzz'
+
+
+function fizzbuzz (num) {
+  var fizzBuzzString = ''
+  for (var i = 1; i < num + 1; i++) { // multiple of 3 and 5
+    if (i % 3 === 0 && i % 5 === 0) fizzBuzzString += 'fizzbuzz' // add "fizzbuzz" to the fizzbuzz string
+    else if (i % 5 === 0 && i % 3 !== 0) fizzBuzzString += 'buzz' //multiple of 5 (but not 3
+    else if (i % 3 === 0 && i % 5 !== 0) fizzBuzzString += 'fizz'
+    else fizzBuzzString += '.'
+  }
+  return fizzBuzzString
+}
+
+//needs work

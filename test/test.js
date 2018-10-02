@@ -33,7 +33,7 @@ let allSyntaxValid = true
 // -----------------------------------------------------------------------------
 
 // returns an array of the top-level function names from a script
-function getTopLevelFunctions (syntaxTree) {
+function getTopLevelFunctions(syntaxTree) {
   let fnNames = []
   for (let i = 0; i < syntaxTree.body.length; i++) {
     const itm = syntaxTree.body[i]
@@ -45,16 +45,16 @@ function getTopLevelFunctions (syntaxTree) {
 }
 
 // example filename --> module filename
-function moduleName (f) {
+function moduleName(f) {
   return f.replace('exercises/', modulesDir)
     .replace('.js', '.module.js')
 }
 
-function moduleExportStatement (fnName) {
+function moduleExportStatement(fnName) {
   return 'module.exports.' + fnName + ' = ' + fnName
 }
 
-function createModuleFile (f) {
+function createModuleFile(f) {
   const fileContents = fs.readFileSync(f, utf8)
   const syntaxTree = esprima.parseScript(fileContents)
   const topLevelFns = getTopLevelFunctions(syntaxTree)
@@ -66,14 +66,14 @@ function createModuleFile (f) {
   fs.writeFileSync(moduleFileName, moduleFileContents)
 }
 
-function createModuleFiles () {
+function createModuleFiles() {
   if (!fs.existsSync(modulesDir)) {
     fs.mkdirSync(modulesDir)
   }
   exerciseFiles.forEach(createModuleFile)
 }
 
-function destroyModuleFiles () {
+function destroyModuleFiles() {
   fs.removeSync(modulesDir)
 }
 
@@ -81,7 +81,7 @@ function destroyModuleFiles () {
 // Check JS Syntax
 // -----------------------------------------------------------------------------
 
-function checkFileSyntax (f) {
+function checkFileSyntax(f) {
   const fileContents = fs.readFileSync(f, utf8)
 
   // check for empty files
@@ -97,7 +97,7 @@ function checkFileSyntax (f) {
   let parsed = null
   try {
     parsed = esprima.parseScript(fileContents)
-  } catch (e) { }
+  } catch (e) {}
   if (!parsed) {
     allSyntaxValid = false
 
@@ -107,7 +107,7 @@ function checkFileSyntax (f) {
   }
 }
 
-function checkJSSyntax () {
+function checkJSSyntax() {
   exerciseFiles.forEach(checkFileSyntax)
 }
 
@@ -115,11 +115,11 @@ function checkJSSyntax () {
 // Util
 // -----------------------------------------------------------------------------
 
-function isFn (f) {
+function isFn(f) {
   return typeof f === 'function'
 }
 
-function getModule (f) {
+function getModule(f) {
   let module
   try {
     module = require(f)
@@ -140,7 +140,7 @@ function getModule (f) {
 // 01 Predicate Functions
 // -----------------------------------------------------------------------------
 
-function checkPredicateFunctions () {
+function checkPredicateFunctions() {
   const moduleFileName = '../' + moduleName('exercises/01-predicate-functions.js')
   let module = getModule(moduleFileName)
 
@@ -185,7 +185,7 @@ function checkPredicateFunctions () {
 // 02 Strings
 // -----------------------------------------------------------------------------
 
-function checkStrings () {
+function checkStrings() {
   const moduleFileName = '../' + moduleName('exercises/02-strings.js')
   let module = getModule(moduleFileName)
 
@@ -233,7 +233,7 @@ function checkStrings () {
 // 03 Fizzbuzz
 // -----------------------------------------------------------------------------
 
-function checkFizzbuzz () {
+function checkFizzbuzz() {
   const moduleFileName = '../' + moduleName('exercisess/03-fizzbuzz.js')
   let module = getModule(moduleFileName)
 
@@ -251,7 +251,7 @@ function checkFizzbuzz () {
 // 04 Fizzbuzz
 // -----------------------------------------------------------------------------
 
-function checkGcd () {
+function checkGcd() {
   const moduleFileName = '../' + moduleName('exercises/04-greatest-common-factor.js')
   let module = getModule(moduleFileName)
 
@@ -270,7 +270,7 @@ function checkGcd () {
 // 05 Number Arrays
 // -----------------------------------------------------------------------------
 
-function checkNumberArrays () {
+function checkNumberArrays() {
   const moduleFileName = '../' + moduleName('exercises/05-number-arrays.js')
   let module = getModule(moduleFileName)
 
@@ -322,7 +322,7 @@ function checkNumberArrays () {
 // 06 Cities
 // -----------------------------------------------------------------------------
 
-function checkCities () {
+function checkCities() {
   const moduleFileName = '../' + moduleName('exercises/06-cities.js')
   let module = getModule(moduleFileName)
 
@@ -332,16 +332,35 @@ function checkCities () {
   })
 
   it('"coolCities" function', function () {
-    assert.deepStrictEqual(module.coolCities([
-      { name: 'Los Angeles', temperature: 60.0},
-      { name: 'Atlanta', temperature: 52.0 },
-      { name: 'Detroit', temperature: 48.0 },
-      { name: 'New York', temperature: 80.0 }
-    ]), [
-      { name: 'Los Angeles', temperature: 60.0},
-      { name: 'Atlanta', temperature: 52.0 },
-      { name: 'Detroit', temperature: 48.0 }
-    ], 'coolCities([\n' +
+    assert.deepStrictEqual(module.coolCities([{
+          name: 'Los Angeles',
+          temperature: 60.0
+        },
+        {
+          name: 'Atlanta',
+          temperature: 52.0
+        },
+        {
+          name: 'Detroit',
+          temperature: 48.0
+        },
+        {
+          name: 'New York',
+          temperature: 80.0
+        }
+      ]), [{
+          name: 'Los Angeles',
+          temperature: 60.0
+        },
+        {
+          name: 'Atlanta',
+          temperature: 52.0
+        },
+        {
+          name: 'Detroit',
+          temperature: 48.0
+        }
+      ], 'coolCities([\n' +
       "      { name: 'Los Angeles', temperature: 60.0},\n" +
       "      { name: 'Atlanta', temperature: 52.0 },\n" +
       "      { name: 'Detroit', temperature: 48.0 },\n" +
@@ -354,17 +373,28 @@ function checkCities () {
   })
 
   it('"cityNames" function', function () {
-    assert.deepStrictEqual(module.cityNames([
-      { name: 'Los Angeles', temperature: 60.0},
-      { name: 'Atlanta', temperature: 52.0 },
-      { name: 'Detroit', temperature: 48.0 },
-      { name: 'New York', temperature: 80.0 }
-    ]), [
-      'Los Angeles',
-      'Atlanta',
-      'Detroit',
-      'New York'
-    ], 'coolCities([\n' +
+    assert.deepStrictEqual(module.cityNames([{
+          name: 'Los Angeles',
+          temperature: 60.0
+        },
+        {
+          name: 'Atlanta',
+          temperature: 52.0
+        },
+        {
+          name: 'Detroit',
+          temperature: 48.0
+        },
+        {
+          name: 'New York',
+          temperature: 80.0
+        }
+      ]), [
+        'Los Angeles',
+        'Atlanta',
+        'Detroit',
+        'New York'
+      ], 'coolCities([\n' +
       "      { name: 'Los Angeles', temperature: 60.0},\n" +
       "      { name: 'Atlanta', temperature: 52.0 },\n" +
       "      { name: 'Detroit', temperature: 48.0 },\n" +
@@ -382,7 +412,7 @@ function checkCities () {
 // 07 Recognize Employees
 // -----------------------------------------------------------------------------
 
-function checkRecognize () {
+function checkRecognize() {
   const moduleFileName = '../' + moduleName('exercises/07-recognize-employees.js')
   let module = getModule(moduleFileName)
 
@@ -412,7 +442,7 @@ function checkRecognize () {
 // 08 Sorting arrays
 // -----------------------------------------------------------------------------
 
-function checkSorting () {
+function checkSorting() {
   const moduleFileName = '../' + moduleName('exercises/08-sort-arrays.js')
   let module = getModule(moduleFileName)
 
@@ -446,10 +476,10 @@ function checkSorting () {
     ]
 
     assert.deepStrictEqual(module.sumSort(arr), [
-      [1, 3, 4],
-      [3, 6],
-      [2, 4, 6, 8]
-    ], 'sortingTwo([\n' +
+        [1, 3, 4],
+        [3, 6],
+        [2, 4, 6, 8]
+      ], 'sortingTwo([\n' +
       '      [1, 3, 4],\n' +
       '      [2, 4, 6, 8],\n' +
       '      [3, 6]\n' +
@@ -465,7 +495,7 @@ function checkSorting () {
 // 09 call N times
 // -----------------------------------------------------------------------------
 
-function checkCallNTimes () {
+function checkCallNTimes() {
   const moduleFileName = '../' + moduleName('exercises/09-call-n-times.js')
   let module = getModule(moduleFileName)
 
@@ -474,12 +504,14 @@ function checkCallNTimes () {
   })
 
   let count1 = 0
-  function counter1 () {
+
+  function counter1() {
     count1 = count1 + 1
   }
 
   let count2 = 0
-  function counter2 () {
+
+  function counter2() {
     count2 = count2 + 1
   }
 

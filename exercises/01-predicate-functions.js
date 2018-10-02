@@ -20,9 +20,26 @@
 // isVowel('A') --> true
 // isVowel(99) --> false
 // isVowel({e: 'Elephant'}) --> false
+function isVowel(letter) {
+  if (typeof letter !== 'string') return false
+  switch (letter.toUpperCase()) {
+    case 'A':
+      return true;
+    case 'E':
+      return true;
+    case 'U':
+      return true;
+    case 'I':
+      return true;
+    case 'O':
+      return true;
+    case 'Y':
+      return true;
+    default:
+      return false;
 
-
-
+  }
+}
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Write two functions: "isEven" and "isOdd" that take a number argument and
 // return true or false if the number is even or odd, respectively.
@@ -36,9 +53,25 @@
 // isOdd(5) --> true
 // isOdd('7') --> false
 // isOdd(3.14) --> false
+function isEven(number) {
+  if (typeof number !== 'number') return false
+  switch (Math.abs(number % 2)) {
+    case 0:
+      return true;
+    default:
+      return false;
+  }
+}
 
-
-
+function isOdd(number) {
+  if (typeof number !== 'number') return false
+  switch (Math.abs(number % 2)) {
+    case 1:
+      return true;
+    default:
+      return false;
+  }
+}
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Write a function "isCapitalCity" that takes two arguments: a US state and a city name
 // and returns true or false if the city name is the capital of the state.
@@ -52,3 +85,61 @@
 // isCapitalCity('Texas', 'Houston') --> false
 // isCapitalCity('Alaska', 'Juneau') --> true
 // isCapitalCity('Strawberry', 'Mango') --> false
+const usStates = {
+  "Alabama": "Montgomery",
+  "Alaska": "Juneau",
+  "Arizona": "Phoenix",
+  "Arkansas": "Little Rock",
+  "California": "Sacramento",
+  "Colorado": "Denver",
+  "Connecticut": "Hartford",
+  "Delaware": "Dover",
+  "Florida": "Tallahassee",
+  "Georgia": "Atlanta",
+  "Hawaii": "Honolulu",
+  "Idaho": "Boise",
+  "Illinois": "Springfield",
+  "Indiana": "Indianapolis",
+  "Iowa": "Des Moines",
+  "Kansas": "Topeka",
+  "Kentucky": "Frankfort",
+  "Louisiana": "Baton Rouge",
+  "Maine": "Augusta",
+  "Maryland": "Annapolis",
+  "Massachusetts": "Boston",
+  "Michigan": "Lansing",
+  "Minnesota": "Saint Paul",
+  "Mississippi": "Jackson",
+  "Missouri": "Jefferson City",
+  "Montana": "Helana",
+  "Nebraska": "Lincoln",
+  "Nevada": "Carson City",
+  "New Hampshire": "Concord",
+  "New Jersey": "Trenton",
+  "New Mexico": "Santa Fe",
+  "New York": "Albany",
+  "North Carolina": "Raleigh",
+  "North Dakota": "Bismarck",
+  "Ohio": "Columbus",
+  "Oklahoma": "Oklahoma City",
+  "Oregon": "Salem",
+  "Pennsylvania": "Harrisburg",
+  "Rhode Island": "Providence",
+  "South Carolina": "Columbia",
+  "South Dakota": "Pierre",
+  "Tennessee": "Nashville",
+  "Texas": "Austin",
+  "Utah": "Salt Lake City",
+  "Vermont": "Montpelier",
+  "Virginia": "Richmond",
+  "Washington": "Olympia",
+  "West Virginia": "Charleston",
+  "Wisconsin": "Madison",
+  "Wyoming": "Cheyenne"
+}
+
+function isCapitalCity(state, city) {
+  if (!usStates[state]) return false
+  if (usStates[state] === city) return true
+  else return false
+}

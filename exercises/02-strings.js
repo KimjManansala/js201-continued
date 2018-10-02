@@ -8,7 +8,12 @@
 // Example:
 // reverse("skoob") --> "books"
 
-
+function reverse(word) {
+  var splitWord = word.split('')
+  var reverseWord = splitWord.reverse()
+  var joinSplitWord = reverseWord.join("")
+  return joinSplitWord
+}
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Write a function "findLongestWord" that takes a string of words and returns
@@ -17,7 +22,17 @@
 //
 // Example:
 // findLongestWord('a book full of dogs') --> 'book'
+function findLongestWord(words) {
+  var longestWord = ''
+  var wordSplit = words.split(" ")
 
+  for (var i = 0; i < wordSplit.length; i++) {
+    if (longestWord.length < wordSplit[i].length) {
+      longestWord = wordSplit[i]
+    }
+  }
+  return longestWord
+}
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -28,7 +43,30 @@
 // Example:
 // nicer('mom get the heck in here and bring me a darn sandwich.')
 // > 'mom get the in here and bring me a sandwich.'
+function nicer(sentence) {
+  var splitSenetence = sentence.split(" ")
+  for (var i = 0; i < splitSenetence.length; i++) {
+    switch (splitSenetence[i]) {
+      case "heck":
+        splitSenetence.splice(i,1);
+        break;
+      case "darn":
+        splitSenetence.splice(i,1);
+        break;
+      case "dang":
+        splitSenetence.splice(i,1);
+        break;
+      case "crappy":
+        splitSenetence.splice(i,1);
+        break;
+      default:
+        break;
+    }
+  }
+  var nicerSentence = splitSenetence.join(" ")
+  return nicerSentence
 
+}
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -39,7 +77,14 @@
 // Examples:
 // capitalizeAll('hello world') --> 'Hello World'
 // capitalizeAll('every day is like sunday') --> 'Every Day Is Like Sunday'
-
+function capitalizeAll(sentence) {
+    var arraySentence = sentence.split(" ")
+    for(var i = 0; i < arraySentence.length; i++){
+        arraySentence[i] = arraySentence[i].substring(0,1).toUpperCase() + arraySentence[i].substring(1,arraySentence[i].length)
+    }
+    var capitalSentence = arraySentence.join(" ")
+    return capitalSentence
+}
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -52,3 +97,15 @@
 // split('a-b-c', '-') --> ['a', 'b', 'c']
 // split('APPLExxBANANAxxCHERRY', 'xx') --> ['APPLE', 'BANANA', 'CHERRY']
 // split('xyz', 'r') --> ['xyz']
+function split(string, delimiter) {
+    splitArray = []
+    for(var i = 0; i < string.length; i++){
+        if(string.substring(i,delimiter.length) === delimiter){
+            
+        }
+        break;
+    }
+    return splitArray
+//Needs work
+}
+
