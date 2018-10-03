@@ -20,6 +20,10 @@ function coolCities (city) {
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Write a function "cityNames" which takes an array of city objects like the
 // above problem and returns an array of the cities names.
-function cityNames () {
-  // needs work
+function cityNames (city) {
+  let nameArray = []
+  for (let i = 0; i < city.length; i++) {
+    nameArray.push(city[i].name)
+  }
+  return nameArray
 }
