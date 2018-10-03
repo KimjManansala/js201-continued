@@ -7,10 +7,9 @@
 // Examples:
 // alphaSort(['b', 'a', 'c'])
 // > ['a', 'b', 'c']
-function alphaSort (aplha){
-    return aplha.sort()
+function alphaSort (aplha) {
+  return aplha.sort()
 }
-
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Write a function "strLengthSort" that sorts an array of strings by how long
@@ -19,10 +18,9 @@ function alphaSort (aplha){
 // Examples:
 // strLengthSort(['Apple', 'Banana', 'Cherry'])
 // > ['Apple', 'Cherry', 'Banana']
-function strLengthSort (){
-    //needs work
+function strLengthSort () {
+  // needs work
 }
-
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Write a function "sumSort". Given an array of array of numbers like:
@@ -42,6 +40,6 @@ function strLengthSort (){
 //   [4, 5]
 // ])
 // > [[2], [4, 5], [9, 1, 9]]
-function sumSort (){
-    //needs work
+function sumSort () {
+  // needs work
 }

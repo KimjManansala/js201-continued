@@ -1,6 +1,6 @@
 // Write a function "max" that takes an array of numbers returns the highest
 // number in the array.
-function max(arrayOfNums) {
+function max (arrayOfNums) {
   let max = 0
   for (let i = 0; i <= arrayOfNums.length; i++) {
     console.log(arrayOfNums[i])
@@ -11,13 +11,12 @@ function max(arrayOfNums) {
   return max
 }
 
-
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Write a function "positives" which takes an array of numbers and returns a
 // new array containing only the positive numbers in the given array.
 
-function positives(arrayOfNums) {
-  positivesArray = []
+function positives (arrayOfNums) {
+  let positivesArray = []
   for (let i = 0; i <= arrayOfNums.length + 1; i++) {
     if (arrayOfNums[i] > 0) {
       positivesArray.push(arrayOfNums[i])
@@ -30,8 +29,8 @@ function positives(arrayOfNums) {
 // Write a function "evens" which takes an array of numbers and returns a new
 // array containing only the even numbers in the given array.
 // Hint: you may want to re-use your "isEven" function from 01-predicate-functions.js
-function evens(number) {
-  onlyEvens = []
+function evens (number) {
+ let onlyEvens = []
   for (let i = 0; i < number.length; i++) {
     if (isEven(number[i])) {
       onlyEvens.push(number[i])
@@ -40,13 +39,13 @@ function evens(number) {
   return onlyEvens
 }
 
-function isEven(number) {
+function isEven (number) {
   if (typeof number !== 'number') return false
   switch (Math.abs(number % 2)) {
     case 0:
-      return true;
+      return true
     default:
-      return false;
+      return false
   }
 }
 
@@ -55,27 +54,25 @@ function isEven(number) {
 // array containing only the odd numbers in the given array.
 // Hint: you may want to re-use your "isOdd" function from 01-predicate-functions.js
 
-function odds(number) {
-  onlyOdds = []
+function odds (number) {
+ let onlyOdds = []
   for (let i = 0; i < number.length; i++) {
     if (isOdd(number[i])) {
       onlyOdds.push(number[i])
     }
   }
   return onlyOdds
-
 }
 
-function isOdd(number) {
+function isOdd (number) {
   if (typeof number !== 'number') return false
   switch (Math.abs(number % 2)) {
     case 1:
-      return true;
+      return true
     default:
-      return false;
+      return false
   }
 }
-
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Write a function "integers" which takes an array of numbers and returns a new
@@ -85,10 +82,10 @@ function isOdd(number) {
 // Example:
 // integers([3.14, 2.4, 7, 8.1, 2]) --> [7, 2]
 
-function integers(numbers) {
+function integers (numbers) {
   let integersArray = []
   for (let i = 0; i < numbers.length; i++) {
-    if (numbers[i] %1 === 0) {
+    if (numbers[i] % 1 === 0) {
       integersArray.push(numbers[i])
     }
   }
@@ -101,9 +98,9 @@ function integers(numbers) {
 //
 // Example:
 // squareDance([1, 2, 3]) --> [1, 4, 9]
-function squareDance(numbs) {
-    for( let i = 0; i < numbs.length; i++){
-        numbs[i] = Math.pow(numbs[i], 2)
-    }
-    return numbs
+function squareDance (numbs) {
+  for (let i = 0; i < numbs.length; i++) {
+    numbs[i] = Math.pow(numbs[i], 2)
+  }
+  return numbs
 }
