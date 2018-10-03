@@ -536,7 +536,7 @@ describe('JavaScript Syntax', checkJSSyntax)
 if (allSyntaxValid) {
   createModuleFiles()
   describe('Predicate Functions', checkPredicateFunctions)
- // describe('String Functions', checkStrings)
+  describe('String Functions', checkStrings)
   describe('Fizzbuzz Function', checkFizzbuzz)
   describe('gcd function', checkGcd)
   describe('Number Array function', checkNumberArrays)

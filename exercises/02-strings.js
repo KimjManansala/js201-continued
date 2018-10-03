@@ -9,9 +9,9 @@
 // reverse("skoob") --> "books"
 
 function reverse(word) {
-  var splitWord = word.split('')
-  var reverseWord = splitWord.reverse()
-  var joinSplitWord = reverseWord.join("")
+  let splitWord = word.split('')
+  let reverseWord = splitWord.reverse()
+  let joinSplitWord = reverseWord.join("")
   return joinSplitWord
 }
 
@@ -23,10 +23,10 @@ function reverse(word) {
 // Example:
 // findLongestWord('a book full of dogs') --> 'book'
 function findLongestWord(words) {
-  var longestWord = ''
-  var wordSplit = words.split(" ")
+  let longestWord = ''
+  let wordSplit = words.split(" ")
 
-  for (var i = 0; i < wordSplit.length; i++) {
+  for (let i = 0; i < wordSplit.length; i++) {
     if (longestWord.length < wordSplit[i].length) {
       longestWord = wordSplit[i]
     }
@@ -44,26 +44,26 @@ function findLongestWord(words) {
 // nicer('mom get the heck in here and bring me a darn sandwich.')
 // > 'mom get the in here and bring me a sandwich.'
 function nicer(sentence) {
-  var splitSenetence = sentence.split(" ")
-  for (var i = 0; i < splitSenetence.length; i++) {
+  let splitSenetence = sentence.split(" ")
+  for (let i = 0; i < splitSenetence.length; i++) {
     switch (splitSenetence[i]) {
       case "heck":
-        splitSenetence.splice(i,1);
+        splitSenetence.splice(i, 1);
         break;
       case "darn":
-        splitSenetence.splice(i,1);
+        splitSenetence.splice(i, 1);
         break;
       case "dang":
-        splitSenetence.splice(i,1);
+        splitSenetence.splice(i, 1);
         break;
       case "crappy":
-        splitSenetence.splice(i,1);
+        splitSenetence.splice(i, 1);
         break;
       default:
         break;
     }
   }
-  var nicerSentence = splitSenetence.join(" ")
+  let nicerSentence = splitSenetence.join(" ")
   return nicerSentence
 
 }
@@ -78,12 +78,12 @@ function nicer(sentence) {
 // capitalizeAll('hello world') --> 'Hello World'
 // capitalizeAll('every day is like sunday') --> 'Every Day Is Like Sunday'
 function capitalizeAll(sentence) {
-    var arraySentence = sentence.split(" ")
-    for(var i = 0; i < arraySentence.length; i++){
-        arraySentence[i] = arraySentence[i].substring(0,1).toUpperCase() + arraySentence[i].substring(1,arraySentence[i].length)
-    }
-    var capitalSentence = arraySentence.join(" ")
-    return capitalSentence
+  let arraySentence = sentence.split(" ")
+  for (let i = 0; i < arraySentence.length; i++) {
+    arraySentence[i] = arraySentence[i].substring(0, 1).toUpperCase() + arraySentence[i].substring(1, arraySentence[i].length)
+  }
+  let capitalSentence = arraySentence.join(" ")
+  return capitalSentence
 }
 
 
@@ -98,14 +98,15 @@ function capitalizeAll(sentence) {
 // split('APPLExxBANANAxxCHERRY', 'xx') --> ['APPLE', 'BANANA', 'CHERRY']
 // split('xyz', 'r') --> ['xyz']
 function split(string, delimiter) {
-    splitArray = []
-    for(var i = 0; i < string.length; i++){
-        if(string.substring(i,delimiter.length) === delimiter){
-            
-        }
-        break;
-    }
-    return splitArray
-//Needs work
+  let splitArray = []
+  let delimiterIdx = string.indexOf(delimiter)
+  while (delimiterIdx !== -1) {
+    const chunk = string.substring(0, delimiterIdx)
+    splitArray.push(chunk)
+    string = string.substring(chunk.length)
+    string = string.substring(delimiter.length)
+    delimiterIdx = string.indexOf(delimiter)
+  }
+  splitArray.push(string)
+  return splitArray
 }
-

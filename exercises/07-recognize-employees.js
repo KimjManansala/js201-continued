@@ -19,9 +19,9 @@
 
 
 function recognizeEmployees (names,emplOfMonth){
-    var recognizeArray = []
-    for(var i  = 0; i < names.length; i++){
-        for(var j =0; j < emplOfMonth.length; j++){
+    let recognizeArray = []
+    for(let i  = 0; i < names.length; i++){
+        for(let j =0; j < emplOfMonth.length; j++){
             if(names[i] === emplOfMonth[j]){
             recognizeArray.push("Outstanding job, " + names[i] + '!')
             names.splice(i,1)

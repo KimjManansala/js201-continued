@@ -23,7 +23,7 @@
 // that it prints "Hello, world!" to the console.
 
 function callNTimes (num, fn){
-    for(var i = 0; i < num; i++){
+    for(let i = 0; i < num; i++){
        fn()
     }
 }

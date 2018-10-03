@@ -8,8 +8,8 @@
 // and returns a new array containing only those cities whose temperature is
 // cooler than 70 degrees.
 function coolCities (city){
-   var cityArray = []
-   for(var i = 0; i < city.length; i ++){
+   let cityArray = []
+   for(let i = 0; i < city.length; i ++){
         if(city[i].temperature > 70){
             cityArray.push(city[i]).name
         }

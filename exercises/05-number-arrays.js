@@ -1,8 +1,8 @@
 // Write a function "max" that takes an array of numbers returns the highest
 // number in the array.
 function max(arrayOfNums) {
-  var max = 0
-  for (var i = 0; i <= arrayOfNums.length; i++) {
+  let max = 0
+  for (let i = 0; i <= arrayOfNums.length; i++) {
     console.log(arrayOfNums[i])
     if (arrayOfNums[i] >= max) {
       max = arrayOfNums[i]
@@ -18,7 +18,7 @@ function max(arrayOfNums) {
 
 function positives(arrayOfNums) {
   positivesArray = []
-  for (var i = 0; i <= arrayOfNums.length + 1; i++) {
+  for (let i = 0; i <= arrayOfNums.length + 1; i++) {
     if (arrayOfNums[i] > 0) {
       positivesArray.push(arrayOfNums[i])
     }
@@ -32,7 +32,7 @@ function positives(arrayOfNums) {
 // Hint: you may want to re-use your "isEven" function from 01-predicate-functions.js
 function evens(number) {
   onlyEvens = []
-  for (var i = 0; i < number.length; i++) {
+  for (let i = 0; i < number.length; i++) {
     if (isEven(number[i])) {
       onlyEvens.push(number[i])
     }
@@ -57,7 +57,7 @@ function isEven(number) {
 
 function odds(number) {
   onlyOdds = []
-  for (var i = 0; i < number.length; i++) {
+  for (let i = 0; i < number.length; i++) {
     if (isOdd(number[i])) {
       onlyOdds.push(number[i])
     }
@@ -86,8 +86,8 @@ function isOdd(number) {
 // integers([3.14, 2.4, 7, 8.1, 2]) --> [7, 2]
 
 function integers(numbers) {
-  var integersArray = []
-  for (var i = 0; i < numbers.length; i++) {
+  let integersArray = []
+  for (let i = 0; i < numbers.length; i++) {
     if (numbers[i] %1 === 0) {
       integersArray.push(numbers[i])
     }
@@ -102,7 +102,7 @@ function integers(numbers) {
 // Example:
 // squareDance([1, 2, 3]) --> [1, 4, 9]
 function squareDance(numbs) {
-    for( var i = 0; i < numbs.length; i++){
+    for( let i = 0; i < numbs.length; i++){
         numbs[i] = Math.pow(numbs[i], 2)
     }
     return numbs
