@@ -7,27 +7,41 @@
 // Examples:
 // recognizeEmployees(['Susan', 'Anthony', 'Bill'], ['Bill'])
 // > ['Great job, Susan!', 'Great job, Anthony!', 'Outstanding job, Bill!']
-//
+
 // recognizeEmployees(['Susan', 'Anthony', 'Bill'], ['Bill', 'Susan'])
 // > ['Outstanding job, Susan!', 'Great job, Anthony!', 'Outstanding job, Bill!']
-//
+
 // recognizeEmployees(['Susan', 'Anthony', 'Bill'], ['Jennifer', 'Dylan'])
 // > ['Great job, Susan!', 'Great job, Anthony!', 'Great job, Bill!']
 //
 // Hint: What is the best data structure for the employees of the month list?
 
-function recognizeEmployees (names, emplOfMonth) {
+// function recognizeEmployees(names, emplOfMonth) {
+//   let recognizeArray = []
+//   for (let i = 0; i < names.length; i++) {
+//     for (let j = 0; j < emplOfMonth.length; j++) {
+//       if (names[i] === emplOfMonth[j]) {
+//         recognizeArray.push('Outstanding job, ' + names[i] + '!')
+//         names.splice(i, 1)
+//       }
+//     }
+//     recognizeArray.push('Great job, ' + names[i] + '!')
+//   }
+//   return recognizeArray
+// }
+
+function recognizeEmployees (name, otherName) {
   let recognizeArray = []
-  for (let i = 0; i < names.length; i++) {
-    for (let j = 0; j < emplOfMonth.length; j++) {
-      if (names[i] === emplOfMonth[j]) {
-        recognizeArray.push('Outstanding job, ' + names[i] + '!')
-        names.splice(i, 1)
-      } else {
-        recognizeArray.push('Great job, ' + names[i] + '!')
+  for (let i = 0; i < name.length; i++) {
+    for (let j = 0; j < otherName.length; j++) {
+      if (name[i] === otherName[j]) {
+        recognizeArray.push('Outstanding job, ' + otherName[j] + '!')
+        name[i] = undefined
       }
+    }
+    if (name[i] !== undefined) {
+      recognizeArray.push('Great job, ' + name[i] + '!')
     }
   }
   return recognizeArray
-  // needs work
 }
