@@ -18,8 +18,8 @@ function alphaSort (aplha) {
 // Examples:
 // strLengthSort(['Apple', 'Banana', 'Cherry'])
 // > ['Apple', 'Cherry', 'Banana']
-function strLengthSort () {
-  // needs word
+function strLengthSort (strings) {
+  return strings.sort(function (a, b) { return a.length - b.length })
 }
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -40,6 +40,23 @@ function strLengthSort () {
 //   [4, 5]
 // ])
 // > [[2], [4, 5], [9, 1, 9]]
-function sumSort () {
-  // needs work
+function sumSort (numArray) {
+  numArray.sort(function (a, b) {
+    let sum1 = sum(a)
+    let sum2 = sum(b)
+    if (sum1 < sum2) {
+      return -1
+    } else {
+      return 0
+    }
+  })
 }
+
+function sum (array) {
+  let sum = 0
+  for (var i = 0; i < array.length; i++) {
+    sum += array[i]
+  }
+  return sum
+}
+
